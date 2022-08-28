@@ -1,9 +1,15 @@
-import React from 'react'
+import Banner from '../components/Banner'
+import Search from '../components/Search/Search'
+import HouseList from '../components/Houses/HouseList';
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <>
+      <Banner />
+      <Search />
+      <HouseList />
+    </>
   )
 }
 
-export default Home
+export default Home;
