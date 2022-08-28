@@ -1,8 +1,12 @@
-import React from 'react'
+import { Text, Center} from '@chakra-ui/react';
 
 const Footer = () => {
   return (
-    <div>Footer</div>
+    <>
+      <Center borderTopEndRadius='50%' mt='8' py='20px' bg='pink.700' color='white'>
+        <Text fontSize='15px'>Copyright &copy; 2022. All rights reserved.</Text>
+      </Center>
+    </>
   )
 }
 
