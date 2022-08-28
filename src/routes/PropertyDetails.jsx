@@ -1,8 +1,10 @@
-import React from 'react'
+import HouseDetails from "../components/PropertyDetails/HouseDetails";
 
 const PropertyDetails = () => {
   return (
-    <div>PropertyDetails</div>
+    <>      
+      <HouseDetails />
+    </>
   )
 }
 
