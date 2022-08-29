@@ -17,7 +17,7 @@ import Apartment6Lg from "../assets/images/apartments/a6lg.png";
 const Banner = () => {
   return (
     <>
-      <Stack direction="row" mb='6' overflow='hidden'>
+      <Stack direction="row" my='6' overflow='hidden'>
         <VStack
           flexGrow='1'
           px={{ sm: "6", md: "10" }}

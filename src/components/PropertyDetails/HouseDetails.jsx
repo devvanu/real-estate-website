@@ -34,7 +34,7 @@ const HouseDetails = () => {
         <VStack align='left' maxW='640px'>
           <Image src={searchedHouse.imageLg} alt='house' />
 
-          <HStack py='10px' spacing="5">
+          <Stack py='10px' spacing={{sm: '3', md: '5'}} direction={{base: 'column', md: 'row'}}>
             <HStack>
                 <BiBed style={{ color: "#D53F8C" }} />
                 <Text fontSize="14px">{searchedHouse.bedrooms} Bedrooms</Text>
@@ -49,7 +49,7 @@ const HouseDetails = () => {
                 <BiArea style={{ color: "#D53F8C" }} />
                 <Text fontSize="14px">{searchedHouse.surface}</Text>
             </HStack>
-          </HStack>
+          </Stack>
         
           <Text fontSize='15px'>{searchedHouse.description}</Text>
       

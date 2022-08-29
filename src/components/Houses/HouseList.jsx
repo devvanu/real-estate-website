@@ -19,7 +19,7 @@ const HouseList = () => {
   if (houses.length === 0) {
     return (
       <Stack maxH='400px'>
-        <Heading size="lg" p="10" align="center">
+        <Heading size="lg" p={{base: '6', md: '10'}} align="center">
           Oops... Can try another one?
         </Heading>
       </Stack>
