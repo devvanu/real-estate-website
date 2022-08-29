@@ -1,52 +1,61 @@
 import { Stack, VStack, Heading, Text, Box, HStack, Image, Input, Textarea, Button } from "@chakra-ui/react"
 import { BiBed, BiBath, BiArea } from "react-icons/bi";
+
+import { useContext } from "react";
+import { useParams } from "react-router-dom";
+
+import { HouseContext } from "../../context/HouseContext";
 import Form from "./Form";
 
 const HouseDetails = () => {
+
+  const {propertyId} = useParams();
+  const { houses } = useContext(HouseContext);
+
+  const searchedHouse = houses.find(house=> house.id== propertyId)
+
   return (
     <>
-      <HStack justify='space-between' my='28px'>
+      <Stack direction={{base: 'column', md: 'row'}} justify='space-between' align={{md: 'center'}}  my='28px'>
         <Box>
-          <Heading fontSize='25px'>House 4</Heading>
-          <Text fontSize='15px'>B4 Woodland St. Cocoa. FL 329227</Text>
+          <Heading fontSize='22px'>{searchedHouse.name}</Heading>
+          <Text fontSize='15px'>{searchedHouse.address}</Text>
         </Box>
         
         <HStack>
-          <Text px='3' borderRadius='full' bg='green.300'>House</Text>
-          <Text px='3' borderRadius='full' bg='purple.300'>Canda</Text>
+          <Text px='3' borderRadius='full' bg='green.300'>{searchedHouse.type}</Text>
+          <Text px='3' borderRadius='full' bg='purple.300'>{searchedHouse.country}</Text>
         </HStack>
 
-        <Text fontWeight="extrabold" fontSize="20px" color="pink.500">Rs. 200000</Text>
-      </HStack>
+        <Text fontWeight="extrabold" fontSize="20px" color="pink.500">Rs. {searchedHouse.price}</Text>
+      </Stack>
 
       <Stack direction={{base:'column', lg: 'row'}} gap='6' align='flex-start'>
         <VStack align='left' maxW='640px'>
-          <Image src="https://cdn.pixabay.com/photo/2016/11/18/17/46/house-1836070_960_720.jpg" alt='house' />
+          <Image src={searchedHouse.imageLg} alt='house' />
 
           <HStack py='10px' spacing="5">
             <HStack>
                 <BiBed style={{ color: "#D53F8C" }} />
-                <Text fontSize="14px">4 Beds</Text>
+                <Text fontSize="14px">{searchedHouse.bedrooms} Bedrooms</Text>
             </HStack>
 
             <HStack>
                 <BiBath style={{ color: "#D53F8C" }} />
-                <Text fontSize="14px">2 Bathrooms</Text>
+                <Text fontSize="14px">{searchedHouse.bathrooms} Bathrooms</Text>
             </HStack>
 
             <HStack>
                 <BiArea style={{ color: "#D53F8C" }} />
-                <Text fontSize="14px">340</Text>
+                <Text fontSize="14px">{searchedHouse.surface}</Text>
             </HStack>
           </HStack>
         
-          <Text fontSize='15px'>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti labore atque commodi odit ipsam perferendis a quo nam reiciendis illo explicabo, itaque vel in fugiat assumenda hic deserunt animi unde ut rem, sapiente recusandae quibusdam veniam dignissimos! Voluptatum dolor quisquam alias, non reprehenderit eaque. Maxime at perspiciatis quis labore unde provident ipsa minus voluptatibus vero quas, dignissimos accusamus. Corrupti, similique. Explicabo amet incidunt illo, possimus laborum nisi sed praesentium, dolor veniam eius animi atque. Eaque velit dignissimos nesciunt vitae praesentium aperiam neque, expedita veniam ad quo doloribus necessitatibus quis? Ea, magni voluptatum. Molestiae maiores porro quibusdam eum eligendi deleniti commodi.
-          </Text>
+          <Text fontSize='15px'>{searchedHouse.description}</Text>
       
         </VStack>
         
-        <Form />
+        <Form searchedHouse={searchedHouse} />
       </Stack>
     </>
   )
