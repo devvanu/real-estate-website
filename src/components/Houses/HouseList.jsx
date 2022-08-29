@@ -1,7 +1,8 @@
-import { Grid, Heading } from '@chakra-ui/react';
+import { Grid, Heading, Stack } from '@chakra-ui/react';
 import { useContext } from "react";
-import { HouseContext } from "../../context/HouseContext";
+import { Link } from 'react-router-dom';
 
+import { HouseContext } from "../../context/HouseContext";
 import HouseItem from './HouseItem';
 
 const HouseList = () => {
@@ -9,9 +10,11 @@ const HouseList = () => {
 
   if (houses.length === 0) {
     return (
-      <Heading size="lg" p="10" align="center">
-        Oops... Can try another one?
-      </Heading>
+      <Stack maxH='400px'>
+        <Heading size="lg" p="10" align="center">
+          Oops... Can try another one?
+        </Heading>
+      </Stack>
     );
   }
 
@@ -20,7 +23,9 @@ const HouseList = () => {
     >
       {
         houses.map(item=>
-          <HouseItem key={item.id} house={item} />
+          <Link to={`/property-details/${item.id}`} key={item.id}>
+            <HouseItem key={item.id} house={item} />
+          </Link>
         )
       }
     </Grid>

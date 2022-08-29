@@ -1,4 +1,4 @@
-import { Button, Flex, Heading, VStack, Select, Stack } from '@chakra-ui/react'
+import { Button, Flex, Heading } from '@chakra-ui/react'
 import { useContext} from "react";
 import { HouseContext } from '../../context/HouseContext';
 

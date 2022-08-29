@@ -1,4 +1,4 @@
-import { extendTheme, theme as base } from "@chakra-ui/react"
+import { extendTheme, theme as base, withDefaultVariant } from "@chakra-ui/react"
 
 const breakpoints = {
   sm: '320px',
@@ -26,6 +26,23 @@ export const theme = extendTheme({
       defaultProps: {
         colorScheme: 'pink', // default is gray
       }
+    },
+    Input:{
+      defaultProps: {
+        focusBorderColor: 'pink.500'
+      }
+    },
+    Select:{
+      baseStyle: {
+        _focus: {
+          borderColor: 'pink.500'
+        }
+      }
+    },
+    Textarea:{
+      defaultProps: {
+        focusBorderColor: 'pink.500'
+      }
     }
   }
-})
+});

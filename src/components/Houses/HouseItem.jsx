@@ -16,7 +16,7 @@ const HouseItem = ({ house }) => {
         <Stack justify='center' width="300px" bg="white" boxShadow="xl" borderRadius="xl">
         <Image src={house.imageLg} h='170' alt='houses' />
 
-        <VStack p='3' align='left'>
+        <VStack p='4' align='left'>
             <Text mt="-1" fontWeight="extrabold" fontSize="18px" color="pink.500">
             Rs.{house.price}
             <span style={{ fontSize: 12, color: "grey", fontWeight: "normal" }}>
@@ -37,17 +37,17 @@ const HouseItem = ({ house }) => {
             <HStack spacing="5">
             <HStack>
                 <BiBed style={{ color: "#D53F8C" }} />
-                <Text fontSize="11px">{house.bedrooms} Beds</Text>
+                <Text fontSize="12px">{house.bedrooms}</Text>
             </HStack>
 
             <HStack>
                 <BiBath style={{ color: "#D53F8C" }} />
-                <Text fontSize="11px">{house.bathrooms} Bathrooms</Text>
+                <Text fontSize="12px">{house.bathrooms}</Text>
             </HStack>
 
             <HStack>
                 <BiArea style={{ color: "#D53F8C" }} />
-                <Text fontSize="11px">{house.surface}</Text>
+                <Text fontSize="12px">{house.surface}</Text>
             </HStack>
             </HStack>
 

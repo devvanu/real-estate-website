@@ -1,20 +1,20 @@
-import { Flex, Heading, Button,  HStack, chakra, ButtonGroup, useBreakpointValue } from '@chakra-ui/react';
+import { Flex, Heading, Button,  HStack, chakra, ButtonGroup, useBreakpointValue, Divider } from '@chakra-ui/react';
 import NavMobile from './NavMobile';
 
 const Header = () => {
-  const isDesktop = useBreakpointValue({ base: false, md: true })
+  const isDesktop = useBreakpointValue({ base: false, lg: true })
 
   return (
     <chakra.header id="header">
-      <Flex w='100%' px='6' py='5' align='center' justify='space-between'>
-        <Heading color='pink.700'>Estatery.</Heading>
+      <Flex w='100%' py='5' align='center' justify='space-between' mb='2'>
+        <Heading fontSize='3xl' color='pink.700'>Estatery.</Heading>
         {
           isDesktop ? (
           <>
             <ButtonGroup as='nav' variant='link' spacing='5'>
                 {
                   ['Home', 'Features', 'About Us'].map((item)=>(
-                    <Button key={item}>{item}</Button>
+                    <Button fontSize='16px' key={item}>{item}</Button>
                     ))
                 }
             </ButtonGroup>
@@ -29,6 +29,7 @@ const Header = () => {
           )
         }
       </Flex>
+      <Divider />
     </chakra.header>
   )
 }

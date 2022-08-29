@@ -78,7 +78,6 @@ const HouseProvider = ({children}) =>{
                 return house;
             }
         })
-        console.log(filteredHouses);
         setHouses(filteredHouses);
     }
     
