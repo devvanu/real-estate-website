@@ -1,4 +1,4 @@
-import { Grid, Heading, Stack } from '@chakra-ui/react';
+import { Center, Grid, Heading, Spinner, Stack } from '@chakra-ui/react';
 import { useContext } from "react";
 import { Link } from 'react-router-dom';
 
@@ -6,7 +6,15 @@ import { HouseContext } from "../../context/HouseContext";
 import HouseItem from './HouseItem';
 
 const HouseList = () => {
-  const { houses } = useContext(HouseContext);
+  const { houses, isLoading } = useContext(HouseContext);
+
+  if(isLoading){
+    return (
+      <Center>
+        <Spinner align='center' color='pink.500' />
+      </Center>
+    )
+  }
 
   if (houses.length === 0) {
     return (

@@ -11,6 +11,7 @@ const HouseProvider = ({children}) =>{
     const [price, setPrice] = useState('Select Price');
     const [property, setProperty] = useState('Select type');
     const [properties, setProperties] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
     
     useEffect(() => {
         const allCountries = houses.map(house=>{
@@ -29,6 +30,8 @@ const HouseProvider = ({children}) =>{
     }, []);
 
     const searchHandler=()=>{
+        setIsLoading(true);
+       
         // checking selection 
         const isDefault = (str)=> {
             return str.split(' ').includes('Select');
@@ -78,7 +81,12 @@ const HouseProvider = ({children}) =>{
                 return house;
             }
         })
-        setHouses(filteredHouses);
+
+        // setHouses(filteredHouses)
+        setTimeout(() => {
+            filteredHouses.length>0 ? setHouses(filteredHouses) : setHouses([]);
+            setIsLoading(false);
+        }, 1000);
     }
     
     return(
@@ -92,7 +100,8 @@ const HouseProvider = ({children}) =>{
             property,
             setProperty,
             properties,
-            searchHandler
+            searchHandler,
+            isLoading
         }}>
             {children}
         </HouseContext.Provider>
